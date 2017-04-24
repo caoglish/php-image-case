@@ -13,22 +13,10 @@
 */
 
 Route::get('/', function () {
-	return view('welcome');
-	session('code', '$code');
-}
-);
+    return view('welcome');
+    session('code', '$code');
+});
 
-Route::get('/captcha', function (Request $request) {
-	$code = rand(1000,9999);
-	session(["code",$code]);
-	$im = imagecreatetruecolor(50, 24);
-	$bg = imagecolorallocate($im, 22, 86, 165);
-	$fg = imagecolorallocate($im, 255, 255, 255);
-	imagefill($im, 0, 0, $bg);
-	imagestring($im, 5, 5, 5,  $code, $fg);
-	imagepng($im);
-	imagedestroy($im);
-	return response(null)->withHeaders(["Cache-Control"=> "no-cache, must-revalidate",'Content-type'=>' image/png']);
-	
-}
-);
+Route::get('/captcha/image',"Captcha@image");
+Route::get('/captcha',"Captcha@index");
+Route::post('/captcha/verify',"Captcha@verify");
