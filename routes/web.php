@@ -17,6 +17,6 @@ Route::get('/', function () {
     session('code', '$code');
 });
 
-Route::get('/captcha/image',"Captcha@image");
-Route::get('/captcha',"Captcha@index");
-Route::post('/captcha/verify',"Captcha@verify");
+Route::get('/captcha/image',"CaptchaController@image");
+Route::get('/captcha',"CaptchaController@index");
+Route::post('/captcha/verify',"CaptchaController@verify");
