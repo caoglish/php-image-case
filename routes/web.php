@@ -19,4 +19,8 @@ Route::get('/', function () {
 
 Route::get('/captcha/image',"CaptchaController@image");
 Route::get('/captcha',"CaptchaController@index");
+Route::get('/captcha/example',"CaptchaController@example");
+Route::get('/captcha/exampleImage',"CaptchaController@exampleImage");
 Route::post('/captcha/verify',"CaptchaController@verify");
+
+Route::get('/panda',"PandaController@index");
